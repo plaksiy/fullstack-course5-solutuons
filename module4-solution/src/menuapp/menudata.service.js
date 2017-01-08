@@ -1,10 +1,10 @@
 (function () {
 'use strict';
 
-angular.module('MenuData')
+angular.module('Data')
 .service('MenuDataService', MenuDataService);
 
-MenuDataService .$inject = ['$http', 'categoryShortName']
+MenuDataService .$inject = ['$http', 'categoryShortName'];
 function MenuDataService($http, categoryShortName) {
 	var menuData = this;
 
@@ -15,7 +15,6 @@ function MenuDataService($http, categoryShortName) {
 	menuData.getItemsForCategory = function(categoryShortName) {
 // https://davids-restaurant.herokuapp.com/menu_items.json?category=
 	};
-
 }
 
 })();

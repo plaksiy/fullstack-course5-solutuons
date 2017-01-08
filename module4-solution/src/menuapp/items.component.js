@@ -1,9 +1,10 @@
 (function () {
 'use strict';
 
-angular.module('Items')
+angular.module('MenuApp')
 .component('Items', {
-	templateUrl: '',
+	templateUrl: 'src/menuapp/templates/items.templates.html',
+	controller: ItemsController,
 	bindings: {
 		items: '<'
 	}
