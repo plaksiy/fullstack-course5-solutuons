@@ -2,4 +2,19 @@
 <a ui-sref="categories">Categories</a> &lt; 
 <span>Items</span>
 
-<table></table>
+<table class="table table-striped">
+	<thead>
+		<th>Code</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Price</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in itemsCtrl.items">
+			<td>{{item.short_name}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.description}}</td>
+			<td>{{item.price_large}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,4 +1,4 @@
-(function (argument) {
+(function () {
 'use strict';
 
 angular.module('MenuApp')
@@ -23,16 +23,25 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 		.state('categories', {
 			url: '/categories',
 			templateUrl: 'src/menuapp/templates/categories.template.html',
-			controller: 'CategoriesController as categoriesList'
+			controller: 'CategoriesController as categoriesCtrl',
+			resolve: {
+				categories: ['MenuDataService', function (MenuDataService) {
+					return MenuDataService.getAllCategories();
+				}]
+			}
 		})
 
 		// Items list page
 		.state('items', {
-			url: '/items',
+			url: '/items/{categoryId}',
 			templateUrl: 'src/menuapp/templates/items.template.html',
-			controller: 'ItemsController as itemsList'
+			controller: 'ItemsController as itemsCtrl',
+			resolve: {
+				items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+					return MenuDataService.getItemsForCategory($stateParams.categoryId);
+				}]
+			}
 		});
-
 }
 
 })();

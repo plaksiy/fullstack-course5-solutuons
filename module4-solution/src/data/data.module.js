@@ -3,4 +3,6 @@
 
 angular.module('Data', []);
 
+console.log('start Data');
+
 })();
